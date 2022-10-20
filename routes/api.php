@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::middleware('json')->group(function () {
 Route::get('/products', [ServeProductsController::class, 'getAllProducts']);
 Route::get('/products/{productId}', [ServeProductsController::class, 'getAllProducts']);
-Route::get('/uses/{productId}', [ServeUsesController::class, 'getAllProductUses']);
+Route::get('/uses/{purchaseId}', [ServeUsesController::class, 'getAllPurchaseUses']);
 Route::post('/uses/register', [RegisterUseController::class, 'registerUse']);
 
 Route::get('/purchase/{productId}', [ServePurchasesController::class, 'getPurchase']);
