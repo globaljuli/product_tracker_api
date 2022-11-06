@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->string('brand')->nullable();
             $table->string('image_path')->nullable();
             $table->foreignId('quantity_id')->constrained();
             $table->foreignId('product_category_id')->constrained();
