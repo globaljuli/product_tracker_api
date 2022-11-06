@@ -11,7 +11,7 @@ class Purchase extends Model
 {
     use HasFactory;
 
-    protected $with = ['product'];
+    protected $with = ['product', 'shop'];
     protected $appends = ['uses'];
 
     protected $casts = [
@@ -26,9 +26,17 @@ class Purchase extends Model
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * Get Shop
+     */
+    public function shop(): BelongsTo
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
 
     /**
-     * Get Product
+     * Get Uses
      */
     public function getUsesAttribute(): int
     {
