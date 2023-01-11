@@ -12,6 +12,15 @@ class RegisterUseController extends Controller
     public function registerUse()
     {
 
+        // id: json["id"],
+        // purchaseId: json["purchase_id"],
+        // product: Product.fromJson(json["product"]),
+        // useTypeId: json["use_type_id"],
+        // createdAt: DateTime.parse(json["created_at"]),
+        // updatedAt: DateTime.parse(json["updated_at"]),
+        //TODO: Dates should be server-generated
+        //TODO: Block changes if product_purchase is finished
+
         $data = \request()->json()->all();
 
         try {
