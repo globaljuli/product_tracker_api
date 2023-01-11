@@ -15,7 +15,7 @@ class CreateQuantitiesTable extends Migration
     {
         Schema::create('quantities', function (Blueprint $table) {
             $table->id();
-            $table->smallint('quantity');
+            $table->smallInteger('quantity');
             $table->enum('unit', ['grams', 'liters']);
         });
     }
