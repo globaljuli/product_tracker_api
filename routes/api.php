@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Products\ServeProductsController;
 use App\Http\Controllers\Purchase\ServePurchasesController;
+use App\Http\Controllers\Purchase\FinishPurchaseController;
+
 use App\Http\Controllers\Uses\RegisterUseController;
 use App\Http\Controllers\Uses\ServeUsesController;
 /*
@@ -32,5 +34,7 @@ Route::post('/uses/register', [RegisterUseController::class, 'registerUse']);
 
 Route::get('/purchase/{productId}', [ServePurchasesController::class, 'getPurchase']);
 Route::get('/purchases', [ServePurchasesController::class, 'getAllPurchases']);
+
+Route::get('/purchase/finish/{purchaseId}', [FinishPurchaseController::class, 'markPurchaseAsFinished']);
 
 //});

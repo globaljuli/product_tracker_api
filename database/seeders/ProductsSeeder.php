@@ -21,6 +21,7 @@ class ProductsSeeder extends Seeder
                     'name' => 'Nidias - Xampú Sòlid',
                     'description' => 'Anticaspa',
                     'image_path' => null,
+                    "quantity_id" => 1,
                     'product_category_id' => 1,
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -31,6 +32,7 @@ class ProductsSeeder extends Seeder
                     'description' => '"Champú Sólido Impecable"',
                     'image_path' => null,
                     'product_category_id' => 1,
+                    "quantity_id" => 1,
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                 ]
