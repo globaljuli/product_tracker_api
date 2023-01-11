@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Carbon\Carbon;
 
+
+//TODO: I think we should change this to product_purchase
 class Purchase extends Model
 {
     use HasFactory;
 
     protected $with = ['product', 'shop'];
     protected $appends = ['uses'];
+    protected $fillable = ["finished_at"];
 
     protected $casts = [
         'price' => 'double',
@@ -43,4 +47,13 @@ class Purchase extends Model
         return $this->hasMany(ProductUse::class)->count();
     }
 
+    /**
+     * Mark product purchase as finished
+     */
+    public function setProductPurchaseAsFinished(){
+        if(!$this->finished_at){
+            return $this->update(["finished_at" => Carbon::now()]);
+        }
+        return 0;
+    }
 }

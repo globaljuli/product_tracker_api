@@ -15,6 +15,13 @@ class ServePurchasesController extends Controller
 
     public function getPurchase($purchaseId): JsonResponse
     {
+        $purchase = Purchase::find($purchaseId);
+        if(!$purchase){
+            return new JsonResponse(["errors" => [
+                "error" => 404,
+                "title" => "Purchase not found"
+            ]]);
+        }
         return new JsonResponse(["ok" => true, "response" => Purchase::find($purchaseId)]);
     }
 }
