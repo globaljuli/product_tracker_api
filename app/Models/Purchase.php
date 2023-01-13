@@ -54,6 +54,6 @@ class Purchase extends Model
         if(!$this->finished_at){
             return $this->update(["finished_at" => Carbon::now()]);
         }
-        return 0;
+        return $this->update(["finished_at" => null]);
     }
 }
