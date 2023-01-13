@@ -33,6 +33,9 @@ Route::get('/uses/{purchaseId}', [ServeUsesController::class, 'getAllPurchaseUse
 Route::post('/uses/register', [RegisterUseController::class, 'registerUse']);
 
 Route::get('/purchase/{productId}', [ServePurchasesController::class, 'getPurchase']);
+
+Route::get('/purchases/open', [ServePurchasesController::class, 'getAllOpenPurchases']);
+Route::get('/purchases/finished', [ServePurchasesController::class, 'getAllFinishedPurchases']);
 Route::get('/purchases', [ServePurchasesController::class, 'getAllPurchases']);
 
 Route::get('/purchase/finish/{purchaseId}', [FinishPurchaseController::class, 'markPurchaseAsFinished']);

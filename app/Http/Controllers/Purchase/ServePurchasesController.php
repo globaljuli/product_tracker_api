@@ -8,9 +8,24 @@ use Illuminate\Http\JsonResponse;
 
 class ServePurchasesController extends Controller
 {
-    public function getAllPurchases(): JsonResponse
+    public function getAllOpenPurchases(): JsonResponse
     {
         return new JsonResponse(["ok" => true, "response" => Purchase::where('finished_at', null)->get()]);
+    }
+
+    public function getAllFinishedPurchases(): JsonResponse
+    {
+        return new JsonResponse(["ok" => true, "response" => Purchase::where('finished_at', '!=', null)->get()]);
+    }
+
+    public function getAllPurchases(): JsonResponse
+    {
+        return new JsonResponse(["data" => 
+        [
+            "open_purchases" => Purchase::where('finished_at', null)->get(),
+            "closed_purchases" => Purchase::where('finished_at', '!=', null)->get(),
+        ]
+        ]);
     }
 
     public function getPurchase($purchaseId): JsonResponse
