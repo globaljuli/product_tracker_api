@@ -10,7 +10,7 @@ class ServePurchasesController extends Controller
 {
     public function getAllPurchases(): JsonResponse
     {
-        return new JsonResponse(["ok" => true, "response" => Purchase::all()]);
+        return new JsonResponse(["ok" => true, "response" => Purchase::where('finished_at', null)->get()]);
     }
 
     public function getPurchase($purchaseId): JsonResponse
